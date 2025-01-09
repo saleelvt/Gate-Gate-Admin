@@ -48,9 +48,9 @@ export const AdminLogin = React.memo(() => {
           toast: true,
           showConfirmButton: false,
           timerProgressBar: true,
-          background: '#fff', // Light red background for an error message
-          color: '#721c24', // Darker red text color for better readability
-          iconColor: '#f44336', // Custom color for the icon
+          background: '#fff',
+          color: '#721c24', 
+          iconColor: '#f44336', 
           didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer); // Pause timer on hover
             toast.addEventListener('mouseleave', Swal.resumeTimer); // Resume timer on mouse leave
