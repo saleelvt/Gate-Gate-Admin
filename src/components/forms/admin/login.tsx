@@ -52,14 +52,14 @@ export const AdminLogin = React.memo(() => {
           color: '#721c24', 
           iconColor: '#f44336', 
           didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer); // Pause timer on hover
-            toast.addEventListener('mouseleave', Swal.resumeTimer); // Resume timer on mouse leave
+            toast.addEventListener('mouseenter', Swal.stopTimer); 
+            toast.addEventListener('mouseleave', Swal.resumeTimer); 
           },
           showClass: {
-            popup: 'animate__animated animate__fadeInDown' // Animation when the toast appears
+            popup: 'animate__animated animate__fadeInDown'
           },
           hideClass: {
-            popup: 'animate__animated animate__fadeOutUp' // Animation when the toast disappears
+            popup: 'animate__animated animate__fadeOutUp'
           }
         });
       }
