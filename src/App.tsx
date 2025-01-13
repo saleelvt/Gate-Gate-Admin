@@ -7,8 +7,12 @@ import { Loading } from './components/pages/Loading';
 import { AdminLogin } from './components/forms/admin/login';
 import { useSelector } from 'react-redux';
 import { RootState } from './reduxKit/store';
-import { AdminHomePage } from './components/pages/admin/adminHomePage';
-// const AdminHomePage = lazy(()=> import("./components/pages/admin/adminHomePage"))
+
+import DefaultLayout from './layout/DefaultLayout';
+import ECommerce from './components/pages/Dashboard/Ecommerce';
+import FormLayout from './components/pages/Form/FormLayout';
+import TableOne from './components/Table/SubService';
+import Tables from './components/pages/Table';
 
 
 
@@ -18,11 +22,81 @@ export const App: React.FC = React.memo(() => {
   return (
     <Fragment>
       <Toaster position="top-center" />
+   
       <Suspense fallback={<Loading />}>
         <Routes>
-          <Route path="/" element={isLogged   ? <Navigate to="/home" /> : <AdminLogin />} />
-          <Route path="/adminHomepage" element={ <AdminHomePage/>} />  
+          <Route path="/adminlogin" element={ <AdminLogin/>} />
         </Routes>
+
+
+
+
+<Routes>
+  <Route path='/' element={
+    <>
+            <DefaultLayout>
+      <Routes>
+        <Route
+          index
+          element= {
+          
+        
+              <ECommerce />
+            
+          }
+        />
+        
+        {/* <Route
+          path="/profile"
+          element={
+            <>
+              
+              <Profile />
+            </>
+          }
+        /> */}
+       
+        <Route
+          path="/forms/form-layout"
+          element={
+            <>
+        
+              <FormLayout />
+            </>
+          }
+        />
+        <Route
+          path="/tables"
+          element={
+            <>
+             
+              <Tables />
+            </>
+          }
+        />
+        {/* <Route path="/settings"element={<>  <Settings />
+            </>
+          }
+        />
+        */}
+        <Route
+          path="/subservice"
+          element={
+             <TableOne/>
+          }
+        />
+       
+        
+      </Routes>
+      <>
+      </>
+   </DefaultLayout>
+    </>
+  } />
+</Routes>
+
+
+
       </Suspense>
     </Fragment>
   );
