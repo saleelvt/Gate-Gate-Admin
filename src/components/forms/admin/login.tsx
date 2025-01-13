@@ -15,7 +15,6 @@ import Swal from "sweetalert2";
 
 
 export const AdminLogin = React.memo(() => {
-
   const dispatch=useDispatch<AppDispatch>()
   const navigate = useNavigate()
   const {loading}=useSelector((state:RootState)=>state.auth)
@@ -23,9 +22,6 @@ export const AdminLogin = React.memo(() => {
     email: "",
     password: "",
   };
-
-
-
 
 
 
