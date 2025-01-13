@@ -23,8 +23,6 @@ export const AdminLogin = React.memo(() => {
     password: "",
   };
 
-
-
   const [showPassword, setShowPassword] = useState(false);
   const formik = useFormik<IAdminLogin>({
     initialValues,
@@ -33,7 +31,7 @@ export const AdminLogin = React.memo(() => {
       try {
         console.log(values, "before going to salon home page");
         await dispatch(loginAdmin(values)).unwrap()
-        navigate("/adminHomepage")
+        navigate("/admin/dashboard")
       }  catch (error:any) {
         console.error("Login failed:", error);
         Swal.fire({

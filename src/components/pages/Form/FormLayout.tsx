@@ -14,9 +14,13 @@ const FormLayout: React.FC = () => {
     image: '', // Error for image upload
   });
 
-  const handleSubmitService = (event: React.FormEvent) => {
-    event.preventDefault();
+  
 
+  const handleSubmitService = (event: React.FormEvent) => {
+
+
+
+    event.preventDefault();
     let hasError = false;
     const newErrors = { service: '', subService: '', game: '', image: '' };
 
@@ -32,6 +36,7 @@ const FormLayout: React.FC = () => {
       newErrors.game = 'Game is required';
       hasError = true;
     }
+
     if (!image) {
       newErrors.image = 'Image is required';
       hasError = true;

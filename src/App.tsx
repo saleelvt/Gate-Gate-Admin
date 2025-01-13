@@ -1,6 +1,5 @@
 // src/App.tsx
 import React, { Fragment,  Suspense } from 'react';
-
 import { Routes,Route  } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { Loading } from './components/pages/Loading';
@@ -14,6 +13,8 @@ import TableOne from './components/Table/SubService';
 import Tables from './components/pages/Table';
 
 
+
+
 export const App: React.FC = React.memo(() => {
   const {isLogged,}=useSelector((state:RootState)=>state.auth)
   console.log("my role and my isLogged", isLogged);
@@ -23,35 +24,19 @@ export const App: React.FC = React.memo(() => {
    
       <Suspense fallback={<Loading />}>
         <Routes>
-          <Route path="/adminlogin" element={ <AdminLogin/>} />
+          <Route path="/admin/login" element={ <AdminLogin/>} />
         </Routes>
-
-
-
-
-<Routes>
-  <Route path='/' element={
-    <>
+    
             <DefaultLayout>
       <Routes>
         <Route
           index
           element= {
-          
               <ECommerce />
             
           }
         />
         
-        {/* <Route
-          path="/profile"
-          element={
-            <>
-              
-              <Profile />
-            </>
-          }
-        /> */}
        
         <Route
           path="/forms/form-layout"
@@ -83,14 +68,11 @@ export const App: React.FC = React.memo(() => {
           }
         />
        
-        
       </Routes>
       <>
       </>
    </DefaultLayout>
-    </>
-  } />
-</Routes>
+ 
 
 
 
@@ -98,5 +80,3 @@ export const App: React.FC = React.memo(() => {
     </Fragment>
   );
 });
-
-
